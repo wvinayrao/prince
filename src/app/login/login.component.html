@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 default-tab">
+    <tabset>
+        <tab heading='Login'>
+            <form #userLoginForm="ngForm" (ngSubmit)="onLoginSubmit(userLoginForm.value)">
+                <div class="form-group">
+                  <label>User Name:</label>
+                  <input type="text" required class="form-control" #refUserName="ngModel" name="userName" pattern="[a-zA-Z][a-zA-Z ]+" placeholder="Please Enter User Name" [ngModel]="defaultUserName">
+                  <div [hidden]="refUserName.valid || refUserName.pristine" class="alert alert-danger">
+                    Please Enter User Name
+                  </div>
+                  
+                </div>
+                <div class="form-group">
+                  <label>Password:</label>
+                  <input type="text" required class="form-control" #refPassword="ngModel" name="password" pattern="[a-zA-Z][a-zA-Z ]+" placeholder="Please Enter Password " [ngModel]="defaultPassword">
+                  <div [hidden]="refPassword.valid || refPassword.pristine" class="alert alert-danger">
+                    Please Enter Password
+                  </div>
+                  <br>
+                  <br>
+                  <div class="form-group">
+                    <button type="login" [disabled]= "!userLoginForm.valid" class="btn btn-primary">LOGIN</button>
+                  </div>
+                </div>
+              </form>
+        </tab>
+        <tab heading='Register'> 
+            <form #userRegisterForm="ngForm" (ngSubmit)="onRegisterSubmit(userRegisterForm.value)">
+                <div class="form-group">
+                  <label>User Name:</label>
+                  <input type="text" required class="form-control" #refUserName="ngModel" name="userName" placeholder="Please Enter User Nmae" [ngModel]="defaultUserName">
+                  <div [hidden]="refUserName.valid || refUserName.pristine" class="alert alert-danger">
+                    Please Enter User Name
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Password:</label>
+                  <input type="text" required class="form-control" #refPassword="ngModel" name="password" placeholder="Please Enter Password " [ngModel]="defaultPassword">
+                  <div [hidden]="refPassword.valid || refPassword.pristine" class="alert alert-danger">
+                    Please Enter Password
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password:</label>
+                    <input type="text" required class="form-control" #refConfirmPassword="ngModel" name="confirmPassword" placeholder="Please Confirm Password " [ngModel]="defaultPassword">
+                    <div [hidden]="refConfirmPassword.valid || refConfirmPassword.pristine" class="alert alert-danger">
+                      Please Confirm Password
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label>System Id:</label>
+                    <input type="text" required class="form-control" #refSystemId="ngModel" name="systemId" placeholder="Please Enter System Id" [ngModel]="defaultSystemId">
+                    <div [hidden]="refSystemId.valid || refSystemId.pristine" class="alert alert-danger">
+                      Please Enter The System Id
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label>Email Id:</label>
+                  <input type="email" required class="form-control" #refEmail="ngModel" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                   placeholder="Please Enter your Email Address " [ngModel]="defaultEmail">
+                  <div [hidden]="refEmail.valid || refEmail.pristine" class="alert alert-danger">
+                    Please Enter Email Id
+                  </div>
+                </div>
+                <br>
+                <div class="form-group"> 
+                    <button type="submit" [disabled]= "!userRegisterForm.valid" class="btn btn-success">Submit</button>
+                </div>       
+            </form>
+        </tab>
+    </tabset>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
+
